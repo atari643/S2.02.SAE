@@ -126,7 +126,7 @@ public class MyApp implements ActionListener, SelectionListener, TopologyListene
         } else if (e.getActionCommand().equals("A*")) {
             if (this.source != null && this.destination != null) {
                 actionResetLink();
-                A(tp, source);
+                a(tp, source);
             }
 
         }
@@ -250,7 +250,7 @@ public class MyApp implements ActionListener, SelectionListener, TopologyListene
      * @param source le sommet source
      * @return la liste des Sommets enfants associé au sommet parents
      */
-    public Map<Node, Node> A(Topology graph, Node source) {
+    public Map<Node, Node> a(Topology graph, Node source) {
         Map<Node, Node> listNodes = new HashMap<>();
         Node s = null;
         for (Node nodes : source.getNeighbors()) {
