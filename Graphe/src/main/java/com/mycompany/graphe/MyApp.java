@@ -131,7 +131,10 @@ public class MyApp implements ActionListener, SelectionListener, TopologyListene
 
         }
     }
-
+    /**
+     * Créer le projet MyApp
+     * @param args 
+     */
     public static void main(String[] args) {
         new MyApp();
     }
@@ -224,7 +227,7 @@ public class MyApp implements ActionListener, SelectionListener, TopologyListene
      * Fonction qui détermine si un sommet à des voisins accessibles
      *
      * @param node un sommet
-     * @return vrai si il y a au moins un voisin du sommet qui n'est pas lock
+     * @return vrai si il y a pas de voisin non parcouru
      * faux sinon
      */
     public boolean notNeighbors(Node node) {
@@ -297,7 +300,11 @@ public class MyApp implements ActionListener, SelectionListener, TopologyListene
         }
         return status;
     }
-
+    /**
+     * Fonction qui permet de détecter l'ajout d'un sommet
+     *
+     * @param node le sommet ajouter
+     */
     @Override
     public void onNodeAdded(Node node) {
     }
