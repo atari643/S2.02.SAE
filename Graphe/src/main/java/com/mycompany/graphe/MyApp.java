@@ -80,12 +80,13 @@ public class MyApp implements ActionListener, SelectionListener, TopologyListene
         window.pack();
         window.setVisible(true);
     }
+
     /**
      * Permet de reset l'ensemble des liens dans le graphe
      */
     public void actionResetLink() {
         for (Link link : tp.getLinks()) {
-            link.source.getCommonLinkWith(link.destination).setWidth(1);
+            link.setWidth(1);
 
         }
     }
@@ -247,6 +248,17 @@ public class MyApp implements ActionListener, SelectionListener, TopologyListene
     }
 
     /**
+     * Methode permettant d'afficher le plus court chemin sur le graphe
+     *
+     * @param shortWay Une liste de sommet qui indique le plus court chemin
+     */
+    public void displayWay(ArrayList<Node> shortWay) {
+        for (int i = 0; i < shortWay.size() - 1; i++) {
+            shortWay.get(i).getCommonLinkWith(shortWay.get(i + 1)).setWidth(4);
+        }
+    }
+
+    /**
      * Fonction qui effectue le parcours en largueur d'un graphe
      *
      * @param graph le graphe à parcourir
@@ -337,6 +349,7 @@ public class MyApp implements ActionListener, SelectionListener, TopologyListene
     public ArrayList<Node> extractWay(Map<Node, Node> largeur, Node source, Node destination) {
         ArrayList<Node> nodes = new ArrayList<>();
         Node s = destination;
+        nodes.add(s);
         boolean status = false;
         if (!notNeighborsLock(s)) {
             status = true;
